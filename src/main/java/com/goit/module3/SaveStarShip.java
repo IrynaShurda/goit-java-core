@@ -9,6 +9,7 @@ public class SaveStarShip {
         System.out.println(Arrays.toString(ship.getPlanets("DangerBanger")));
         System.out.println(ship.choosePlanet(10));
         System.out.println(ship.calculateFuelPrice("STAR100", 10));
+        System.out.println(ship.roundSpeed(75));
     }
 
     public int calculateDistance(int distance){
@@ -52,5 +53,15 @@ public class SaveStarShip {
         }else {
             return count*50;
         }
+    }
+
+    public int roundSpeed(int speed){
+    if (speed %10 == 0) {
+        return speed;
+    } else if (speed % 10 >= 5){
+        return  (speed-(speed % 10))+10;
+    } else {
+        return (speed-(speed % 10));
+    }
     }
 }
