@@ -3,28 +3,21 @@ package com.goit.module3;
 import java.util.Arrays;
 
 public class SaveStarShip {
-    //Test output
     public static void main(String[] args) {
         SaveStarShip ship = new SaveStarShip();
-
-        //Завдання 15
-        //System.out.println(ship.calculateDistance(-10));
-
-        //Завдання 16
-        System.out.println(Arrays.toString(ship.getPlanets
-                ("DangerBanger")));
-
+        System.out.println(ship.calculateDistance(-10));
+        System.out.println(Arrays.toString(ship.getPlanets("DangerBanger")));
+        System.out.println(ship.choosePlanet(10));
     }
 
-    //Завдання 15
-    /*public int calculateDistance(int distance){
+    public int calculateDistance(int distance){
         if (distance > 0) {
             return distance;
         } else {
             return Math.abs(distance);
         }
-    }*/
-    //Завдання 16
+    }
+
     public String[] getPlanets(String galaxy) {
         String[] miaru = {"Maux", "Reux", "Piax"};
         String[] milkyway = {"Earth", "Mars", "Jupiter"};
@@ -38,6 +31,14 @@ public class SaveStarShip {
             return dangerBanger;
         } else {
             return empty;
+        }
+    }
+
+    public String choosePlanet(long distanceToEarth){
+        if (distanceToEarth < 45677) {
+            return "Earth";
+        }else{
+            return "Pern";
         }
     }
 }
