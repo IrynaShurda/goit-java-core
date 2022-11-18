@@ -1,6 +1,7 @@
 package com.goit.module3;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class SaveStarShip {
     public static void main(String[] args) {
@@ -11,9 +12,12 @@ public class SaveStarShip {
         System.out.println(ship.calculateFuelPrice("STAR100", 10));
         System.out.println(ship.roundSpeed(75));
         System.out.println(ship.calculateNeededFuel(21));
+        //Test stdin data - 1 3 5.
+        //Console ouput should be 3.5
+        ship.calculateMaxPower();
     }
 
-    public int calculateDistance(int distance){
+    public int calculateDistance(int distance) {
         if (distance > 0) {
             return distance;
         } else {
@@ -37,41 +41,62 @@ public class SaveStarShip {
         }
     }
 
-    public String choosePlanet(long distanceToEarth){
+    public String choosePlanet(long distanceToEarth) {
         if (distanceToEarth < 45677) {
             return "Earth";
-        }else{
+        } else {
             return "Pern";
         }
     }
-    public int calculateFuelPrice(String fuel, int count){
-        if (fuel.equals("STAR100")){
-            return count*70;
-        } else if (fuel.equals("STAR500")){
-            return count*120;
-        } else if (fuel.equals("STAR1000")){
-            return count*200;
-        }else {
-            return count*50;
+
+    public int calculateFuelPrice(String fuel, int count) {
+        if (fuel.equals("STAR100")) {
+            return count * 70;
+        } else if (fuel.equals("STAR500")) {
+            return count * 120;
+        } else if (fuel.equals("STAR1000")) {
+            return count * 200;
+        } else {
+            return count * 50;
         }
     }
 
-    public int roundSpeed(int speed){
-    if (speed %10 == 0) {
-        return speed;
-    } else if (speed % 10 >= 5){
-        return  (speed-(speed % 10))+10;
-    } else {
-        return (speed-(speed % 10));
-    }
+    public int roundSpeed(int speed) {
+        if (speed % 10 == 0) {
+            return speed;
+        } else if (speed % 10 >= 5) {
+            return (speed - (speed % 10)) + 10;
+        } else {
+            return (speed - (speed % 10));
+        }
     }
 
-    public int calculateNeededFuel(int distance){
+    public int calculateNeededFuel(int distance) {
         int sYear = 20;
         if (distance <= sYear) {
             return 1000;
-        }else {
-            return ((distance-sYear)*5)+1000;
+        } else {
+            return ((distance - sYear) * 5) + 1000;
         }
     }
+
+    public void calculateMaxPower() {
+        Scanner scanner = new Scanner(System.in);
+        int sum1 = scanner.nextInt();
+        int sum2 = scanner.nextInt();
+        int sum3 = scanner.nextInt();
+        scanner.close();
+        int maxSum;
+        float result;
+        maxSum = Math.max(Math.max(sum1, sum2), Math.max(sum2, sum3));
+        if (maxSum < 10) {
+            result= maxSum * 0.7f;
+        } else if (maxSum <= 100){
+            result= maxSum * 1.2f;
+        } else {
+            result = maxSum*2.1f;
+        }
+        System.out.println(result);
+    }
+
 }
