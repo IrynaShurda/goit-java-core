@@ -15,6 +15,8 @@ public class SaveStarShip {
         //Test stdin data - 1 3 5.
         //Console ouput should be 3.5
         ship.calculateMaxPower();
+        //Should be "crystall coin"
+        System.out.println(ship.getMyPrizes(250));
     }
 
     public int calculateDistance(int distance) {
@@ -90,13 +92,34 @@ public class SaveStarShip {
         float result;
         maxSum = Math.max(Math.max(sum1, sum2), Math.max(sum2, sum3));
         if (maxSum < 10) {
-            result= maxSum * 0.7f;
-        } else if (maxSum <= 100){
-            result= maxSum * 1.2f;
+            result = maxSum * 0.7f;
+        } else if (maxSum <= 100) {
+            result = maxSum * 1.2f;
         } else {
-            result = maxSum*2.1f;
+            result = maxSum * 2.1f;
         }
         System.out.println(result);
     }
 
+    public String getMyPrizes(int ticket) {
+        String resVin = "";
+        if (ticket % 10 == 0) {
+            resVin = "crictal";
+        }
+        if (ticket % 10 == 7) {
+            if (resVin.isEmpty()) {
+                resVin = "chip";
+            } else {
+                resVin = resVin + " " + "chip";
+            }
+        }
+        if (ticket > 200) {
+            if (resVin.isEmpty()) {
+                resVin = "coin";
+            } else {
+                resVin = resVin + " " + "coin";
+            }
+        }
+        return resVin.strip();
+    }
 }
