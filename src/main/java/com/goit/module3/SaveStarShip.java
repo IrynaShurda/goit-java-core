@@ -10,6 +10,7 @@ public class SaveStarShip {
         System.out.println(ship.choosePlanet(10));
         System.out.println(ship.calculateFuelPrice("STAR100", 10));
         System.out.println(ship.roundSpeed(75));
+        System.out.println(ship.calculateNeededFuel(21));
     }
 
     public int calculateDistance(int distance){
@@ -63,5 +64,14 @@ public class SaveStarShip {
     } else {
         return (speed-(speed % 10));
     }
+    }
+
+    public int calculateNeededFuel(int distance){
+        int sYear = 20;
+        if (distance <= sYear) {
+            return 1000;
+        }else {
+            return ((distance-sYear)*5)+1000;
+        }
     }
 }
