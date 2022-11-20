@@ -17,6 +17,9 @@ public class SaveStarShip {
         ship.calculateMaxPower();
         //Should be "crystall coin"
         System.out.println(ship.getMyPrizes(250));
+        //Should be true
+        System.out.println(ship.isHangarOk(100, 75, 1000000));
+        System.out.println(ship.isHangarOk(48, 64, 3072000));
     }
 
     public int calculateDistance(int distance) {
@@ -121,5 +124,17 @@ public class SaveStarShip {
             }
         }
         return resVin.strip();
+    }
+
+    public boolean isHangarOk(int side1, int side2, int price) {
+        int maxSide = Math.max(side1, side2);
+        int minSide = Math.min(side1, side2);
+        int area = side1*side2;
+        if ((area >= 1500) &&
+                (maxSide <= 2 * minSide) && (price/area <= 1000)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
