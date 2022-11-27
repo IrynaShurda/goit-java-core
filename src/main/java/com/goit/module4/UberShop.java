@@ -22,11 +22,17 @@ public class UberShop {
 
         // Завдання 3
         //Should be [50, 1500]
-        //int[] prices = new int[]{100, 1500, 300, 50};
+
+        /*int[] prices = new int[]{100, 1500, 300, 50};
         //int[] prices = new int[]{49, 49, 49, 49};
-        int[] prices = new int[]{};
+        //int[] prices = new int[]{};
         int[] minMax = shop.findMinMaxPrices(prices);
-        System.out.println(Arrays.toString(minMax));
+        System.out.println(Arrays.toString(minMax));*/
+
+        // Завдання 4
+        //Should be [50, 1500]
+        int[] prices = new int[]{100, 1500, 300, 50, 10, 10, 70};
+        System.out.println(shop.getMinPriceCount(prices)); //Should be 2
     }
     // Завдання 1
        /*public void printPrices(float[] prices) {
@@ -60,31 +66,39 @@ public class UberShop {
     }*/
 
     // Завдання 3
-    public int[] findMinMaxPrices(int[] prices) {
+    /*public int[] findMinMaxPrices(int[] prices) {
         Arrays.sort(prices);
         int lenMass = prices.length;
-        /*if (prices.length >= 2) {
-            int[] minMax = {prices[0], prices[prices.length - 1]};
-            return minMax;
-        } else if (prices[0]==prices[prices.length - 1]) {
-            int[] minMax ={prices[0]};
-            return minMax;
-        } else if (prices.length == 1) {
-            int[] minMax ={prices[0]};
-            return minMax;
-        } else {
-            int[] minMax = new int[0];
-            return minMax;
-        }*/
         if (lenMass == 0) {
             return new int[0];
         } else if (prices[0] == prices[lenMass - 1]) {
-           return new int[]{prices[0]};
+            return new int[]{prices[0]};
         } else if (lenMass >= 2) {
-           return new int[]{prices[0], prices[lenMass - 1]};
+            return new int[]{prices[0], prices[lenMass - 1]};
         } else if (lenMass == 1) {
             return new int[]{prices[0]};
         } else
             return new int[0];
+
+    }*/
+
+    // Завдання 4
+    public int getMinPriceCount(int[] prices) {
+        if (prices.length == 0) {
+            return 0;
+        }
+        int min = prices[0];
+        int counter = 0;
+        for (int price: prices) {
+            if (price<min){
+                min=price;
+            }
+        }
+        for (int minPrice: prices) {
+            if (min==minPrice){
+              counter= counter+1;
+            }
+        }
+        return counter;
     }
 }
