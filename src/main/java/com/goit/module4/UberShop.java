@@ -46,10 +46,19 @@ public class UberShop {
 
         // Завдання 6
         //Should be [1599, 399]
+        /*
         //int[] prices = new int[]{399, 1599, 399, 50, 10, 10, 70};
         //int[] prices = new int[]{99, 37, 9, 42, 69, 35, 19, 52, 89, 13};
         int[] prices = new int[]{49, 79, 29, 14, 59, 72, 29, 71, 19, 18};
-        System.out.println(Arrays.toString(shop.leavePrice9(prices)));
+        System.out.println(Arrays.toString(shop.leavePrice9(prices)));*/
+
+        // Завдання 7
+        //Final result should be ["gun", "firebow", "firegun"]
+        //String[] showcaseStocks = new String[]{"gun", "firebow"};
+        String[] showcaseStocks = new String[]{"Ypa", "Onzibew", "bijyma", "tae", "mazaawza"};
+        //String[] warehouseStocks = new String[]{"firegun"};
+        String[] warehouseStocks = new String[]{"bedyuv", "Hihor", "Ybydlou", "etvuac", "Mei"};
+        System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));
 
     }
     // Завдання 1
@@ -140,21 +149,39 @@ public class UberShop {
         return newPrices;
     } */
     // Завдання 6
-    public int[] leavePrice9(int[] prices){
-        int countLengthNewArray=0;
-        for (int price:prices) {
-            if (price % 10 ==9) {
-              countLengthNewArray++;
+    /*public int[] leavePrice9(int[] prices) {
+        int countLengthNewArray = 0;
+        for (int price : prices) {
+            if (price % 10 == 9) {
+                countLengthNewArray++;
             }
         }
-        int [] newPrice = new int[countLengthNewArray];
-        int countNewPricesArray=0;
-        for (int price:prices) {
-            if (price%10 == 9){
-                newPrice[countNewPricesArray]=price;
+        int[] newPrice = new int[countLengthNewArray];
+        int countNewPricesArray = 0;
+        for (int price : prices) {
+            if (price % 10 == 9) {
+                newPrice[countNewPricesArray] = price;
                 countNewPricesArray++;
             }
         }
         return newPrice;
+    }*/
+
+    // Завдання 7
+    public String[] mergeStocks(String[] showcaseStocks, String[] warehouseStocks) {
+        int indexNewArray = showcaseStocks.length + warehouseStocks.length;
+        String[] newArray = new String[indexNewArray];
+        int i = 0;
+        for (; i < showcaseStocks.length; i++) {
+            newArray[i] = showcaseStocks[i];
+        }
+        int index = i;
+        for (int j = 0; j < warehouseStocks.length; j++) {
+            newArray[index] = warehouseStocks[j];
+            index++;
+
+        }
+        return newArray;
     }
 }
+
