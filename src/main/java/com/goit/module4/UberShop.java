@@ -36,10 +36,21 @@ public class UberShop {
 
         // Завдання 5
         //Should be [150, 200]
-//        int[] prices = new int[]{150, 100, 200};
+        /*//int[] prices = new int[]{150, 100, 200};
         int[] prices = new int[]{100, 100, 100};
         int toRemove = 100;
         System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
+
+         */
+
+
+        // Завдання 6
+        //Should be [1599, 399]
+        //int[] prices = new int[]{399, 1599, 399, 50, 10, 10, 70};
+        //int[] prices = new int[]{99, 37, 9, 42, 69, 35, 19, 52, 89, 13};
+        int[] prices = new int[]{49, 79, 29, 14, 59, 72, 29, 71, 19, 18};
+        System.out.println(Arrays.toString(shop.leavePrice9(prices)));
+
     }
     // Завдання 1
        /*public void printPrices(float[] prices) {
@@ -110,24 +121,40 @@ public class UberShop {
     }*/
 
     // Завдання 5
-    public int[] removePrice(int[] prices, int toRemove) {
-//        int findToRemove=prices[0];
+    /*public int[] removePrice(int[] prices, int toRemove) {
         int countToRemove = 0;
-        for (int i = 0; i < prices.length; i++) {
-            if (prices[i] == toRemove) {
+        for (int price : prices) {
+            if (price == toRemove) {
                 countToRemove++;
                 System.out.println(countToRemove);
             }
         }
         int[] newPrices = new int[prices.length - countToRemove];
-        int countNewPricesArray=0;
-        for (int j = 0; j < prices.length; j++) {
-            if (prices[j] != toRemove) {
-                newPrices[countNewPricesArray] = prices[j];
+        int countNewPricesArray = 0;
+        for (int price : prices) {
+            if (price != toRemove) {
+                newPrices[countNewPricesArray] = price;
                 countNewPricesArray++;
-//                System.out.println(newPrices[countNewPricesArray-1]);
             }
         }
         return newPrices;
+    } */
+    // Завдання 6
+    public int[] leavePrice9(int[] prices){
+        int countLengthNewArray=0;
+        for (int price:prices) {
+            if (price % 10 ==9) {
+              countLengthNewArray++;
+            }
+        }
+        int [] newPrice = new int[countLengthNewArray];
+        int countNewPricesArray=0;
+        for (int price:prices) {
+            if (price%10 == 9){
+                newPrice[countNewPricesArray]=price;
+                countNewPricesArray++;
+            }
+        }
+        return newPrice;
     }
 }
