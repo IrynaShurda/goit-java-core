@@ -40,9 +40,7 @@ public class UberShop {
         int[] prices = new int[]{100, 100, 100};
         int toRemove = 100;
         System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
-
          */
-
 
         // Завдання 6
         //Should be [1599, 399]
@@ -54,12 +52,18 @@ public class UberShop {
 
         // Завдання 7
         //Final result should be ["gun", "firebow", "firegun"]
-        //String[] showcaseStocks = new String[]{"gun", "firebow"};
+        /*//String[] showcaseStocks = new String[]{"gun", "firebow"};
         String[] showcaseStocks = new String[]{"Ypa", "Onzibew", "bijyma", "tae", "mazaawza"};
         //String[] warehouseStocks = new String[]{"firegun"};
         String[] warehouseStocks = new String[]{"bedyuv", "Hihor", "Ybydlou", "etvuac", "Mei"};
-        System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));
+        System.out.println(Arrays.toString(shop.mergeStocks(showcaseStocks, warehouseStocks)));*/
 
+        // Завдання 8
+        //Should be 144 - 20 + 50 + 40 + 34
+        //int[] prices = new int[]{10, 20, 50, 40, 34, 500};
+        int[] prices = new int[]{22, 29, 88, 20, 48, 32, 91, 11, 10, 64, 91, 73, 82, 50};
+        //System.out.println(shop.getPricesSum(prices, 20, 50));
+        System.out.println(shop.getPricesSum(prices, 16, 73));
     }
     // Завдання 1
        /*public void printPrices(float[] prices) {
@@ -168,7 +172,7 @@ public class UberShop {
     }*/
 
     // Завдання 7
-    public String[] mergeStocks(String[] showcaseStocks, String[] warehouseStocks) {
+    /*public String[] mergeStocks(String[] showcaseStocks, String[] warehouseStocks) {
         int indexNewArray = showcaseStocks.length + warehouseStocks.length;
         String[] newArray = new String[indexNewArray];
         int i = 0;
@@ -176,12 +180,23 @@ public class UberShop {
             newArray[i] = showcaseStocks[i];
         }
         int index = i;
-        for (int j = 0; j < warehouseStocks.length; j++) {
-            newArray[index] = warehouseStocks[j];
+        for (String warehouseStock : warehouseStocks) {
+            newArray[index] = warehouseStock;
             index++;
-
         }
         return newArray;
+    }*/
+
+    // Завдання 8
+    public int getPricesSum(int[] prices, int minPrice, int maxPrice) {
+        //int min = prices[0];
+        int addPrice = 0;
+        for (int price : prices) {
+            if (price <= maxPrice && price >= minPrice) {
+                addPrice = price + addPrice;
+            }
+        }
+        return addPrice;
     }
 }
 
