@@ -31,8 +31,15 @@ public class UberShop {
 
         // Завдання 4
         //Should be [50, 1500]
-        int[] prices = new int[]{100, 1500, 300, 50, 10, 10, 70};
-        System.out.println(shop.getMinPriceCount(prices)); //Should be 2
+        /*int[] prices = new int[]{100, 1500, 300, 50, 10, 10, 70};
+        System.out.println(shop.getMinPriceCount(prices)); //Should be 2 */
+
+        // Завдання 5
+        //Should be [150, 200]
+//        int[] prices = new int[]{150, 100, 200};
+        int[] prices = new int[]{100, 100, 100};
+        int toRemove = 100;
+        System.out.println(Arrays.toString(shop.removePrice(prices, toRemove)));
     }
     // Завдання 1
        /*public void printPrices(float[] prices) {
@@ -83,22 +90,44 @@ public class UberShop {
     }*/
 
     // Завдання 4
-    public int getMinPriceCount(int[] prices) {
+    /*public int getMinPriceCount(int[] prices) {
         if (prices.length == 0) {
             return 0;
         }
         int min = prices[0];
         int counter = 0;
-        for (int price: prices) {
-            if (price<min){
-                min=price;
+        for (int price : prices) {
+            if (price < min) {
+                min = price;
             }
         }
-        for (int minPrice: prices) {
-            if (min==minPrice){
-              counter= counter+1;
+        for (int minPrice : prices) {
+            if (min == minPrice) {
+                counter = counter + 1;
             }
         }
         return counter;
+    }*/
+
+    // Завдання 5
+    public int[] removePrice(int[] prices, int toRemove) {
+//        int findToRemove=prices[0];
+        int countToRemove = 0;
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] == toRemove) {
+                countToRemove++;
+                System.out.println(countToRemove);
+            }
+        }
+        int[] newPrices = new int[prices.length - countToRemove];
+        int countNewPricesArray=0;
+        for (int j = 0; j < prices.length; j++) {
+            if (prices[j] != toRemove) {
+                newPrices[countNewPricesArray] = prices[j];
+                countNewPricesArray++;
+//                System.out.println(newPrices[countNewPricesArray-1]);
+            }
+        }
+        return newPrices;
     }
 }
