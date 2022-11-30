@@ -25,15 +25,19 @@ public class ArlanHelper {
         //Should be:
         //*#*#*
         System.out.println(helper.drawLine(5));
+
+        //Завдання 13
+        //Should be:
+        //JavaJavaJavaJava
+        System.out.println(helper.drawPattern(new char[] {'J', 'a', 'v', 'a'}, 3));
+
     }
 
     public String drawQuad(int n) {
-        int line = n;
-        int column = n;
         int i = 0;
         int j = 0;
-        while (i < line) {
-            while (j < column) {
+        while (i < n) {
+            while (j < n) {
                 //result +="*";
                 System.out.print("*");
                 j++;
@@ -78,5 +82,14 @@ public class ArlanHelper {
             resultLine +="";
         }
         return resultLine;
+    }
+    public String drawPattern(char[] pattern, int repeatCount){
+        String resultPattern ="".strip();
+        int index=0;
+        while (index< repeatCount){
+            resultPattern+=String.valueOf(pattern);
+            index++;
+        }
+        return resultPattern;
     }
 }
