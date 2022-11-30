@@ -29,7 +29,7 @@ public class ArlanHelper {
         //Завдання 13
         //Should be:
         //JavaJavaJavaJava
-        System.out.println(helper.drawPattern(new char[] {'J', 'a', 'v', 'a'}, 3));
+        System.out.println(helper.drawPattern(new char[]{'J', 'a', 'v', 'a'}, 3));
 
     }
 
@@ -68,26 +68,28 @@ public class ArlanHelper {
         }
         return resultC;
     }
-    public String drawLine(int length){
-        String resultLine="";
+
+    public String drawLine(int length) {
+        String resultLine = "";
         int line = 0;
-        while (line<length ){
-            resultLine +="*";
+        while (line < length) {
+            resultLine += "*";
             line++;
-            while (line<length ){
-                resultLine +="#";
+            while (line < length) {
+                resultLine += "#";
                 line++;
                 break;
             }
-            resultLine +="";
+            resultLine += "";
         }
         return resultLine;
     }
-    public String drawPattern(char[] pattern, int repeatCount){
-        String resultPattern ="".strip();
-        int index=0;
-        while (index< repeatCount){
-            resultPattern+=String.valueOf(pattern);
+
+    public String drawPattern(char[] pattern, int repeatCount) {
+        String resultPattern = "".strip();
+        int index = 0;
+        while (index < repeatCount) {
+            resultPattern += String.valueOf(pattern);
             index++;
         }
         return resultPattern;
