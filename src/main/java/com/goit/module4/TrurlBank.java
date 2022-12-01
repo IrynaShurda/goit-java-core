@@ -23,10 +23,15 @@ public class TrurlBank {
 
     public int countSumOfDigits(int number) {
         String stringNumber = Integer.toString(number);
+        char[] toCharArray = stringNumber.toCharArray();
         int counter = 0;
         int sum = 0;
-        while (counter < stringNumber.length()) {
-            sum += Integer.parseInt(Character.toString(stringNumber.charAt(counter)));
+        while (counter < toCharArray.length) {
+            // Integer.parseInt(String.valueOf(toCharArray[counter]));
+            // int element = toCharArray[counter];
+            // sum += element;
+            sum += Character.getNumericValue(toCharArray[counter]);
+         //   sum += Integer.parseInt(Character.toString(stringNumber.charAt(counter)));
             counter++;
         }
         return sum;
