@@ -44,5 +44,15 @@ public class SpaceShip {
         ship.setSerialNumber("EE123456");
         System.out.println(ship.getSerialNumber()); //Should be SN506788 - old value
 
+        ship.setName("Voyager");
+        ship.setSerialNumber("SN506788");
+
+        //Name is Voyager, serial number is SN504030
+        ship.printInfo();
+    }
+
+    public void printInfo (){
+
+        System.out.println("Name is " +  getName() +", serial number is " + getSerialNumber());
     }
 }
