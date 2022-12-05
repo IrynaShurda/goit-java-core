@@ -52,7 +52,7 @@ public class SpaceShip {
     }
 
     public void printInfo (){
-
+        SpaceRocketLauncher spaceRocketLauncher = new SpaceRocketLauncher();
         System.out.println("Name is " +  getName() +", serial number is " + getSerialNumber());
     }
 }
