@@ -12,10 +12,20 @@ public class Engine {
     }
 
     public static void main(String[] args) {
-        System.out.println(new Engine().getFuelType());
+        Engine basicEngine = new Engine();
+        System.out.println(basicEngine.getFuelType()); //A500
+
+        Engine xFuelEngine = new XFuelEngine();
+        System.out.println(xFuelEngine.getFuelType()); //XFuel
 
     }
-        public String getFuelType(){
+        protected String getFuelType(){
             return "A500";
         }
 }
+ class XFuelEngine extends Engine{
+    @Override
+     public String getFuelType(){
+        return "XFuel";
+    }
+ }
