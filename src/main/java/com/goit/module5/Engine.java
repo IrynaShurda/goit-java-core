@@ -19,7 +19,7 @@ public class Engine {
         System.out.println(xFuelEngine.getFuelType()); //XFuel
 
     }
-        protected String getFuelType(){
+        public String getFuelType(){
             return "A500";
         }
 }
