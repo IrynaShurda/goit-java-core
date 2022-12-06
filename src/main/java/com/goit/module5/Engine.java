@@ -12,11 +12,19 @@ public class Engine {
     }
 
     public static void main(String[] args) {
-        Engine basicEngine = new Engine();
+        //завдання 1-8
+        /*Engine basicEngine = new Engine();
         System.out.println(basicEngine.getFuelType()); //A500
 
         Engine xFuelEngine = new XFuelEngine();
         System.out.println(xFuelEngine.getFuelType()); //XFuel
+
+         */
+        //завдання 9
+        AdvancedXFuelEngine engine = new AdvancedXFuelEngine();
+        engine.setPower(1000);
+        engine.setSerialNumber("SN504030");
+        engine.printInfo(); //Serial number is SN504030, power is 1000
 
     }
         public String getFuelType(){
@@ -24,8 +32,20 @@ public class Engine {
         }
 }
  class XFuelEngine extends Engine{
-    @Override
+    protected String serialNumber;
+
+     public void setSerialNumber(String serialNumber) {
+         this.serialNumber = serialNumber;
+     }
+
+     @Override
      public String getFuelType(){
         return "XFuel";
+    }
+ }
+
+ class AdvancedXFuelEngine extends XFuelEngine{
+    public void printInfo(){
+        System.out.println("Serial number is "+serialNumber+", power is "+getPower());
     }
  }
