@@ -22,6 +22,8 @@ public class PointTest {
 
         System.out.println(p1.equals(p2)); //Will be false
         System.out.println(p1.equals(p3)); //Should be false
+        System.out.println(p1.hashCode() == p2.hashCode()); //Should be true
+        System.out.println(p1.hashCode() == p3.hashCode()); //Can be true or false
     }
 }
 class Point{
