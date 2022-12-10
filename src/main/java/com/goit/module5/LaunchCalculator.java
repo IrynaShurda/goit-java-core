@@ -23,21 +23,22 @@ public class LaunchCalculator {
 abstract class Spaceport {
     public abstract int calculateTotalPrice(int passengerCount);
 }
-class JupiterStar extends Spaceport{
+
+class JupiterStar extends Spaceport {
     @Override
     public int calculateTotalPrice(int passengerCount) {
-        return 500+(2*passengerCount);
+        return 500 + (2 * passengerCount);
     }
 }
 
-class MercuryBeat extends Spaceport{
+class MercuryBeat extends Spaceport {
     @Override
     public int calculateTotalPrice(int passengerCount) {
-        return 15*passengerCount;
+        return 15 * passengerCount;
     }
 }
 
-class SunHeaven extends Spaceport{
+class SunHeaven extends Spaceport {
     @Override
     public int calculateTotalPrice(int passengerCount) {
         return 2000;
