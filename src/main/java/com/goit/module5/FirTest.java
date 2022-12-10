@@ -10,7 +10,8 @@ public class FirTest {
 //        FirNum firNum = new FirNumSum();
 //        FirNum firNum = new FirNumFactorial();
 //        FirNum firNum = new FirNumMultiplyOdd();
-        FirNum firNum = new FirNumFizzBuzz();
+//        FirNum firNum = new FirNumFizzBuzz();
+        FirNum firNum = new FirNumBasis();
         FirTest firTest = new FirTest();
 
         //Should be 10
@@ -26,7 +27,10 @@ public class FirTest {
 //        System.out.println(firTest.test(firNum, 5));
 
         //Should be 83
-        System.out.println(firTest.test(firNum, 20));
+//        System.out.println(firTest.test(firNum, 20));
+
+        //Should be 20
+        System.out.println(firTest.test(firNum, 9));
     }
 }
 
@@ -94,5 +98,18 @@ class FirNumFizzBuzz extends FirNum{
             number++;
         }
         return sum;
+    }
+}
+
+class FirNumBasis extends FirNum {
+    @Override
+    public int calc(int n) {
+        int result = 1;
+        for(int i = 1; i <= n; i++) {
+            if (i%2 == 0) {
+                result += i;
+            }
+        }
+        return result/2;
     }
 }
