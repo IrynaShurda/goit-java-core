@@ -26,8 +26,9 @@ class Hero{
     }
 
     public Hero() {
-        this.name = "Paratrooper";
-        this.hp = 100;
+//        this.name = "Paratrooper";
+//        this.hp = 100;
+        this("Paratrooper",100);
     }
 
     public Hero(String name, int hp) {
