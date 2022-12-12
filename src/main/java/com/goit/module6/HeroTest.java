@@ -10,6 +10,8 @@ public class HeroTest {
 
         //Expect 100
         System.out.println(hero.getHp());
+        new Hero("Stranger", 250).getHp();
+        new Hero().getHp();
 
     }
 }
@@ -32,7 +34,14 @@ class Hero{
     }
 
     public Hero(String name, int hp) {
-        this.name = name;
-        this.hp = hp;
+        if (hp>=0 && hp<=200) {
+            this.name = name;
+            this.hp = hp;
+        }
+        if (hp>200){
+            this.name = name;
+            this.hp = 200;
+        }
+
     }
 }
