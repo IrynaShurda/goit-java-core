@@ -11,30 +11,38 @@ public class LevelTest {
         Level.Point[] points = {p1, p2, p3};
 
         //Quarke level, name is Test, point count is 3
-        System.out.println(new Level("Test", points));
+//        System.out.println(new Level("Test", points));
+
+        Level.LevelInfo info = new Level.LevelInfo("Quarke Intro", "Easy");
+
+        //Quarke level, name is Quarke Intro, difficulty is Easy, point count is 3
+        System.out.println(new Level(info, points));
     }
 }
 class Level{
-    private String nameLevel;
-    private int point;
-    public Level(String nameLevel, Point[] points) {
-        this.nameLevel=nameLevel;
-        this.point= points.length;
+//    private String nameLevel;
+    LevelInfo  levelInfo;
+    private Point[] points;
+
+    public Level(LevelInfo levelInfo, Point[] points) {
+        this.levelInfo=levelInfo;
+        //this.nameLevel=nameLevel;
+        this.points= points;
     }
 
     @Override
     public String toString() {
-        return "Quarke level, name is "+nameLevel+", point count is "+point;
+        return "Quarke level, name is "+ levelInfo.getName()
+                +", difficulty is "+levelInfo.getDifficulty()
+                +", point count is "+points.length;
     }
     static class Point{
-        int x;
-        int y;
-        private Point[] points;
+        private int x;
+        private int y;
 
         public int getX() {
             return x;
         }
-
         public int getY() {
             return y;
         }
@@ -42,6 +50,23 @@ class Level{
             this.x=x;
             this.y=y;
 
+        }
+    }
+    static class LevelInfo{
+        private String name;
+        private String difficulty;
+
+        public String getName() {
+            return name;
+        }
+
+        public String getDifficulty() {
+            return difficulty;
+        }
+
+        public LevelInfo(String name, String difficulty){
+            this.name=name;
+            this.difficulty=difficulty;
         }
     }
 }
