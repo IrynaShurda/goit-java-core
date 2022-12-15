@@ -16,43 +16,60 @@ public class LevelTest {
         Level.LevelInfo info = new Level.LevelInfo("Quarke Intro", "Easy");
 
         //Quarke level, name is Quarke Intro, difficulty is Easy, point count is 3
-        System.out.println(new Level(info, points));
+//        System.out.println(new Level(info, points));
+
+        //3015
+        System.out.println(new Level(info, points).calculateLevelHash());
     }
 }
-class Level{
-//    private String nameLevel;
-    LevelInfo  levelInfo;
+
+class Level {
+    LevelInfo levelInfo;
     private Point[] points;
 
     public Level(LevelInfo levelInfo, Point[] points) {
-        this.levelInfo=levelInfo;
-        //this.nameLevel=nameLevel;
-        this.points= points;
+        this.levelInfo = levelInfo;
+        this.points = points;
     }
 
     @Override
     public String toString() {
-        return "Quarke level, name is "+ levelInfo.getName()
-                +", difficulty is "+levelInfo.getDifficulty()
-                +", point count is "+points.length;
+        return "Quarke level, name is " + levelInfo.getName()
+                + ", difficulty is " + levelInfo.getDifficulty()
+                + ", point count is " + points.length;
     }
-    static class Point{
+
+    public int calculateLevelHash() {
+        int resultSum = 0;
+        for (Point point : points) {
+            resultSum += point.getMultiplication();
+        }
+        return resultSum;
+    }
+
+    static class Point {
         private int x;
         private int y;
 
         public int getX() {
             return x;
         }
+
         public int getY() {
             return y;
         }
-        public Point(int x, int y){
-            this.x=x;
-            this.y=y;
 
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        public int getMultiplication() {
+            return getX() * getY();
         }
     }
-    static class LevelInfo{
+
+    static class LevelInfo {
         private String name;
         private String difficulty;
 
@@ -64,10 +81,12 @@ class Level{
             return difficulty;
         }
 
-        public LevelInfo(String name, String difficulty){
-            this.name=name;
-            this.difficulty=difficulty;
+        public LevelInfo(String name, String difficulty) {
+            this.name = name;
+            this.difficulty = difficulty;
         }
     }
+
+
 }
 
