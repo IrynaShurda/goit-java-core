@@ -1,5 +1,4 @@
 package com.goit.module6;
-
 public class LevelLoaderTest {
     public static void main(String[] args) {
 
