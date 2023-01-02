@@ -29,7 +29,7 @@ class WordDeleter {
         return newPhrase.toString().trim();
     }
 
-    private boolean findEquals(String line, String[] words) {
+    private boolean findEquals(String line,String[] words ) {
         for (String word : words) {
             if (line.equals(word)) {
                 return true;
