@@ -21,10 +21,8 @@ class MathDetector {
             if (isDigit(c)) {
                 counter++;
             }
-            if (counter >= 2) {
-                return true;
-            }
-            boolean digit = isDigit(c) || isMathOperator(c);
+
+            boolean digit = (counter >= 2) || isMathOperator(c);
             if (!digit) {
                 return false;
             }
