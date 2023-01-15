@@ -18,15 +18,11 @@ public class GraphicEditor {
         shapesArr[4] = triangle;
 
         for (Shape shape : shapesArr) {
-            printShapeName(shape);
+            ShapePrinter.printShapeName(shape);
             shape.useColor();
             shape.area();
             shape.draw();
             System.out.println("_____________________________");
         }
-    }
-
-    public static void printShapeName(Shape shape) {
-        shape.shapeName();
     }
 }
