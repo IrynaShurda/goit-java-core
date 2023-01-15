@@ -4,11 +4,11 @@ public class GraphicEditor {
     public static void main(String[] args) {
         Shape[] shapesArr = new Shape[5];
 
-        Circle circle = new Circle(Color.RED, 3);
-        Quad quad = new Quad(9);
-        Rectangle rectangle = new Rectangle(Color.GREEN);
-        Rhombus rhombus = new Rhombus(Color.WHITE,8,4);
-        Triangle triangle = new Triangle(7, 6);
+        Shape circle = new Circle(Color.RED, 3);
+        Shape quad = new Quad(9);
+        Shape rectangle = new Rectangle(Color.GREEN);
+        Shape rhombus = new Rhombus(Color.WHITE,8,4);
+        Shape triangle = new Triangle(7, 6);
 
 
         shapesArr[0] = circle;
@@ -28,8 +28,5 @@ public class GraphicEditor {
 
     public static void printShapeName(Shape shape) {
         shape.shapeName();
-    }
-
-    public static void printShape(Shape shape) {
     }
 }
