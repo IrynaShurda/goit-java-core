@@ -18,7 +18,9 @@ public class GraphicEditor {
         shapesArr[4] = triangle;
 
         for (Shape shape : shapesArr) {
-            ShapePrinter.printShapeName(shape);
+            ShapePrinter shapePrinter = new ShapePrinter(shape);
+            shapePrinter.printShapeName();
+//            ShapePrinter.printShapeName(shape);     // for static method
             shape.useColor();
             shape.area();
             shape.draw();
