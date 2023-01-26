@@ -36,7 +36,7 @@ public class TestCollections {
         System.out.println("after remove " + list);
         System.out.println("size after remove " + list.size());
         System.out.println();
-        System.out.println("CLEAN:");
+        System.out.println("CLEAR:");
         list.clear();
         System.out.println("size " + list.size());
         System.out.println(list);
