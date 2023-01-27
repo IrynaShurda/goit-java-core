@@ -56,6 +56,6 @@ public class MyArrayList<T> {
 
     @Override
     public String toString() {
-        return "MyArrayList " +  Arrays.toString(Arrays.copyOf(elementData, lastFilledIndex));
+        return Arrays.toString(Arrays.copyOf(elementData, lastFilledIndex));
     }
 }

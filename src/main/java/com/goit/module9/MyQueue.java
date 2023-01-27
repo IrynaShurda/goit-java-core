@@ -44,8 +44,7 @@ public class MyQueue<T> {
 
     @Override
     public String toString() {
-        return "MyQueue " +
-                Arrays.toString(Arrays.copyOf(elementData, lastFilledIndex));
+        return Arrays.toString(Arrays.copyOf(elementData, lastFilledIndex));
 
     }
 }

@@ -11,10 +11,12 @@ public class TestCollections {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         MyQueue<Integer> myQueue = new  MyQueue<>();
+        MyQueueExtendsMyArrayList<Integer> myQueueExtendsMyArrayList = new MyQueueExtendsMyArrayList<>();
 
         for (int i = 0; i < 12; i++) {
             list.add(i);
             queue.add(i);
+            myQueueExtendsMyArrayList.add(i);
             myArrayList.add(i);
             myLinkedList.add(i);
             myQueue.add(i);
@@ -125,5 +127,21 @@ public class TestCollections {
         myQueue.clear();
         System.out.println("arr after clear "+ myQueue);
         System.out.println("size after clear "+myQueue.size());
+
+//   MyQueueExtendsMyArrayList
+        System.out.println();
+        System.out.println("============================");
+        System.out.println("MyQueueExtendsMyArrayList");
+        System.out.println(myQueueExtendsMyArrayList);
+        System.out.println("size "+ myQueueExtendsMyArrayList.size());
+        System.out.println("peek "+myQueueExtendsMyArrayList.peek());
+        System.out.println("arr after peek " +myQueueExtendsMyArrayList);
+        System.out.println("size after peek "+myQueueExtendsMyArrayList.size());
+        System.out.println("poll "+ myQueueExtendsMyArrayList.poll());
+        System.out.println("arr after poll " + myQueueExtendsMyArrayList);
+        System.out.println("size after poll "+ myQueueExtendsMyArrayList.size());
+        myQueueExtendsMyArrayList.clear();
+        System.out.println("arr after clear "+ myQueueExtendsMyArrayList);
+        System.out.println("size after clear "+myQueueExtendsMyArrayList.size());
     }
 }
