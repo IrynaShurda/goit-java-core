@@ -1,20 +1,23 @@
 package com.goit.module9;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class TestCollections {
 
     public static void main(String[] args) {
 
         List<Object> list = new LinkedList<>();
-        MyArrayList<Integer> myArrayList = new MyArrayList();
-        MyLinkedList<Integer> myLinkedList = new MyLinkedList();
+        Queue <Object> queue = new ArrayDeque<>();
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        MyQueue<Integer> myQueue = new  MyQueue<>();
+
         for (int i = 0; i < 12; i++) {
             list.add(i);
+            queue.add(i);
             myArrayList.add(i);
             myLinkedList.add(i);
+            myQueue.add(i);
         }
 
         System.out.println("============================");
@@ -22,7 +25,7 @@ public class TestCollections {
         System.out.println("LinkedList");
         System.out.println();
         System.out.println("ADD:");
-        System.out.println(list.toString());
+        System.out.println(list);
         System.out.println();
         System.out.println("SIZE:");
         System.out.println("size " + list.size());
@@ -42,7 +45,7 @@ public class TestCollections {
         System.out.println(list);
 
 //   MyArrayList
-/*
+
         System.out.println("============================");
         System.out.println("MyArrayList");
         System.out.println();
@@ -66,7 +69,7 @@ public class TestCollections {
         System.out.println("size " + myArrayList.size());
         System.out.println(myArrayList);
 
- */
+
 //   MyLinkedList
         System.out.println("============================");
         System.out.println("MyLinkedList");
@@ -90,5 +93,37 @@ public class TestCollections {
         myLinkedList.clear();
         System.out.println("size " + myLinkedList.size());
         System.out.println(myLinkedList);
+
+//   Queue
+        System.out.println();
+        System.out.println("============================");
+        System.out.println("Queue");
+        System.out.println(queue);
+        System.out.println("size " +queue.size());
+        System.out.println("peek "+ queue.peek());
+        System.out.println("arr after peek " + queue);
+        System.out.println("size after peek " + queue.size());
+        System.out.println("poll "+ queue.poll());
+        System.out.println("arr after poll "+ queue);
+        System.out.println("size after poll "+ queue.size());
+        queue.clear();
+        System.out.println("arr after clear "+ queue);
+        System.out.println("size after clear "+ queue.size());
+
+//   MyQueue
+        System.out.println();
+        System.out.println("============================");
+        System.out.println("MyQueue");
+        System.out.println(myQueue);
+        System.out.println("size "+ myQueue.size());
+        System.out.println("peek "+myQueue.peek());
+        System.out.println("arr after peek " +myQueue);
+        System.out.println("size after peek "+myQueue.size());
+        System.out.println("poll "+ myQueue.poll());
+        System.out.println("arr after poll " + myQueue);
+        System.out.println("size after poll "+ myQueue.size());
+        myQueue.clear();
+        System.out.println("arr after clear "+ myQueue);
+        System.out.println("size after clear "+myQueue.size());
     }
 }
