@@ -2,7 +2,7 @@ package com.goit.module9;
 
 import java.util.Arrays;
 
-public class MyStack <T> {
+public class MyStack<T> {
     private static final int DEFAULT_SIZE = 10;
     private Object[] elementData = new Object[DEFAULT_SIZE];
     private int lastFilledIndex;
@@ -21,7 +21,7 @@ public class MyStack <T> {
     }
 
     public T peek() {
-        return (T) elementData[lastFilledIndex-1];
+        return (T) elementData[lastFilledIndex - 1];
     }
 
     public T pop() {
@@ -34,7 +34,7 @@ public class MyStack <T> {
         return (T) elementData[lastFilledIndex];
     }
 
-    public void clear(){
+    public void clear() {
         for (int i = 0; i < size(); i++) {
             elementData[i] = null;
         }
@@ -44,6 +44,5 @@ public class MyStack <T> {
     @Override
     public String toString() {
         return Arrays.toString(Arrays.copyOf(elementData, lastFilledIndex));
-
     }
 }

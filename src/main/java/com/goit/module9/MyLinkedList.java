@@ -1,11 +1,7 @@
 package com.goit.module9;
 
-import java.util.LinkedList;
-import java.util.StringJoiner;
-
 public class MyLinkedList<T> {
     private int size = 0;
-
     private Node<T> first;
     private Node<T> last;
 
@@ -35,7 +31,7 @@ public class MyLinkedList<T> {
             node = node.next;
             counter++;
         }
-        return (T) node.item;
+        return node.item;
     }
 
     public void clear() {
@@ -62,7 +58,6 @@ public class MyLinkedList<T> {
             node = node.next;
             counter++;
         }
-        Node<T> x = node;
         Node<T> prev = node.prev;
         Node<T> next = node.next;
 
@@ -71,7 +66,7 @@ public class MyLinkedList<T> {
 
         size--;
 
-        return (T) node.item;
+        return node.item;
     }
 
     @Override
@@ -80,12 +75,12 @@ public class MyLinkedList<T> {
             return "[]";
         }
         Node<T> node = first.next;
-        String collection = node.prev.item.toString();
+        StringBuilder collection = new StringBuilder(node.prev.item.toString());
         while (node != null) {
-            collection += ", " + node.item;
+            collection.append(", ").append(node.item);
             node = node.next;
         }
-        return collection;
+        return collection.toString();
     }
 
     private static class Node<E> {

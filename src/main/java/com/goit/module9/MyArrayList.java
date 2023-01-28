@@ -3,7 +3,7 @@ package com.goit.module9;
 
 import java.util.Arrays;
 
-public class MyArrayList<T>  {
+public class MyArrayList<T> {
     private static final int DEFAULT_SIZE = 10;
     private Object[] elementData = new Object[DEFAULT_SIZE];
     private int lastFilledIndex;
@@ -52,7 +52,6 @@ public class MyArrayList<T>  {
         lastFilledIndex--;
         return result;
     }
-
 
     @Override
     public String toString() {
