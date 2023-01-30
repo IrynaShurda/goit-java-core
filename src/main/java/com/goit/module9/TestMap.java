@@ -47,7 +47,16 @@ public class TestMap {
         myHashMap.clear();
         System.out.println("map after clear " + myHashMap);
         System.out.println("size after clear " + myHashMap.size());
+
+// test for fix
+//        MyHashMap<Integer, String> hashMap = new MyHashMap<>();
+//
+//        for (int i = 0; i < 1000; i++) {
+//            hashMap.put(i, " i - " + i);
+//        }
+//        System.out.println(hashMap);
+//        System.out.println("size " + hashMap.size());
+//        // i - 555
+//        System.out.println("get 555 = " + hashMap.get(555));
     }
-
-
 }

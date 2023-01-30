@@ -5,7 +5,7 @@ import java.util.*;
 public class MyHashMap<K, V> {
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
     private int size;
-    private Node<K, V>[] table = new Node[DEFAULT_INITIAL_CAPACITY];
+    private final Node<K, V>[] table = new Node[DEFAULT_INITIAL_CAPACITY];
 
     public V put(K key, V value) {
         int index = hash(key) % table.length;
@@ -15,9 +15,10 @@ public class MyHashMap<K, V> {
         if (firstNode == null) {
             table[index] = node;
             size++;
+
         } else {
             Node<K, V> tmpNode = firstNode;
-//            Node<K, V> prev = null;
+            Node<K, V> prev = null;
             boolean isUniqueKey = true;
 
             while (tmpNode != null) {
@@ -25,12 +26,12 @@ public class MyHashMap<K, V> {
                     tmpNode.value = value;
                     isUniqueKey = false;
                 }
-//                prev = tmpNode;
+                prev = tmpNode;
                 tmpNode = tmpNode.next;
             }
             if (isUniqueKey) {
-//                prev.next = node;
-                firstNode.next = node;
+                prev.next = node;
+//                firstNode.next = node;
                 size++;
             }
         }
@@ -83,7 +84,6 @@ public class MyHashMap<K, V> {
         }
         return null;
     }
-
 
     private int hash(Object key) {
         return (key == null) ? 0 : key.hashCode();
