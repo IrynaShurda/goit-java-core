@@ -17,9 +17,7 @@ public class CountUniqueWords {
         if (file.exists()) {
             try (InputStream fis = new FileInputStream(file);
                  Scanner scanner = new Scanner(fis)) {
-
                 while (scanner.hasNext()) {
-
                     String word = scanner.next();
                     if (map.containsKey(word)) {
                         int value = map.get(word);
@@ -28,26 +26,28 @@ public class CountUniqueWords {
                     } else {
                         map.put(word, 1);
                     }
-//                    System.out.println(word);
                 }
-//                System.out.println("map " + map);
-
                 sortResult(map);
-
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
     }
 
-    private static void sortResult(Map<String, Integer> map) {
-        Map<Integer, String> result = new TreeMap<>(Comparator.reverseOrder());
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            result.put(entry.getValue(), entry.getKey());
-        }
 
-        for (Map.Entry<Integer, String> entry : result.entrySet()) {
-            System.out.println(entry.getValue() + " " + entry.getKey());
+    private static void sortResult(Map<String, Integer> map) {
+        Comparator<String> comparator = new Comparator<>() {
+            @Override
+            public int compare(String o1, String o2) {
+                Integer value1 = map.get(o1);
+                Integer value2 = map.get(o2);
+                return value1.compareTo(value2) > 0 ? 1 : -1;
+            }
+        };
+        Map<String, Integer> result = new TreeMap<>(comparator.reversed());
+        result.putAll(map);
+        for (Map.Entry<String, Integer> entry : result.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 }
