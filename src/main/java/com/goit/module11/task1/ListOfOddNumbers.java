@@ -14,7 +14,6 @@ public class ListOfOddNumbers {
                 "Max",
                 "Diana"
         );
-        validateLine(names);
         System.out.println(validateLine(names));
     }
 
