@@ -1,6 +1,7 @@
 package com.goit.module11.task5;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,26 +23,18 @@ public class MixStream {
         );
         List<String> collectedStreams = zip(first, second)
                 .collect(Collectors.toList());
-//        Collections.shuffle(collectedStreams);
         System.out.println(collectedStreams);
-
-
     }
 
     public static <T> Stream<T> zip(Stream<T> first, Stream<T> second) {
-        List<T> firstList = first.collect(Collectors.toList());
-        List<T> secondList = second.collect(Collectors.toList());
+        Iterator<T> firstIterator = first.iterator();
+        Iterator<T> secondIterator = second.iterator();
         List<T> resultList = new ArrayList<>();
 
-        long sizeFirst = firstList.size();
-        long sizeSecond = secondList.size();
-        long minSize = Math.min(sizeFirst, sizeSecond);
-
-        for (int i = 0; i < minSize; i++) {
-            resultList.add(firstList.get(i));
-            resultList.add(secondList.get(i));
+        while (firstIterator.hasNext()&& secondIterator.hasNext()){
+            resultList.add(firstIterator.next());
+            resultList.add(secondIterator.next());
         }
         return resultList.stream();
-
     }
 }
