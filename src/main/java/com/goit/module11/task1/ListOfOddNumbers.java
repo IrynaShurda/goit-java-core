@@ -1,6 +1,5 @@
 package com.goit.module11.task1;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,18 +17,11 @@ public class ListOfOddNumbers {
     }
 
     private static String validateLine(List<String> names) {
-        List<String> indexWithWord = new ArrayList<>();
-        final int[] counter = {1};
-        names
-                .forEach(name -> {
-                    String indexWord = counter[0] + ". " + name;
-                    if (counter[0] % 2 != 0) {
-                        indexWithWord.add(indexWord);
-                    }
-                    counter[0]++;
-                });
-        return indexWithWord
-                .stream()
+        final int[] counter = {0};
+        return names.stream()
+                .peek(c -> counter[0]++)
+                .filter(i -> counter[0] % 2 != 0)
+                .map(in -> counter[0] + ". " + names.get(counter[0]))
                 .collect(Collectors.joining(", "));
     }
 }
