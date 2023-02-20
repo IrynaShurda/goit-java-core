@@ -5,12 +5,14 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class TwoTimeInThreads {
     public static void main(String[] args) throws InterruptedException {
-        extracted(1, 5, 1,5,10000);
+        extracted(1, 5, 1, 5, SECONDS, SECONDS, 10000);
     }
 
-    private static void extracted(int periodOne, int periodTwo, int delayOne,int delayTwo, int shutdownTime) throws InterruptedException {
+    private static void extracted(int periodOne, int periodTwo, int delayOne, int delayTwo, TimeUnit caseTimeOne, TimeUnit caseTimeTwo, int shutdownTime) throws InterruptedException {
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
         AtomicInteger counter = new AtomicInteger();
         executorService.scheduleAtFixedRate(
@@ -20,13 +22,13 @@ public class TwoTimeInThreads {
                 },
                 delayOne,
                 periodOne,
-                TimeUnit.SECONDS
+                caseTimeOne
         );
         executorService.scheduleAtFixedRate(
-                () -> System.out.println("Минуло 5 секунд"),
+                () -> System.out.println("Минуло " + periodTwo + " секунд"),
                 delayTwo,
                 periodTwo,
-                TimeUnit.SECONDS
+                caseTimeTwo
         );
         Thread.sleep(shutdownTime);
         executorService.shutdown();
