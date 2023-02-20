@@ -1,4 +1,5 @@
 package com.goit.module12.task1;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -6,31 +7,28 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TwoTimeInThreads {
     public static void main(String[] args) throws InterruptedException {
-        AtomicInteger counter = new AtomicInteger();
+        extracted(1, 5, 1,5,10000);
+    }
+
+    private static void extracted(int periodOne, int periodTwo, int delayOne,int delayTwo, int shutdownTime) throws InterruptedException {
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
+        AtomicInteger counter = new AtomicInteger();
         executorService.scheduleAtFixedRate(
-                ()->{
+                () -> {
                     counter.getAndIncrement();
-                    if (counter.get()==1) {
-                        System.out.println(counter.get() + " секунда від моменту запуску програми");
-                    }
-                    else if (counter.get()<5) {
-                        System.out.println(counter.get() + " секунди від моменту запуску програми");
-                    }else {
-                        System.out.println(counter.get() + " секунд від моменту запуску програми");
-                    }
+                    System.out.println(counter.get() + " сек");
                 },
-                1,
-                1,
+                delayOne,
+                periodOne,
                 TimeUnit.SECONDS
         );
         executorService.scheduleAtFixedRate(
-                ()->System.out.println("Минуло 5 секунд"),
-                5,
-                5,
+                () -> System.out.println("Минуло 5 секунд"),
+                delayTwo,
+                periodTwo,
                 TimeUnit.SECONDS
         );
-        Thread.sleep(10000);
+        Thread.sleep(shutdownTime);
         executorService.shutdown();
         System.out.println("finish");
     }
