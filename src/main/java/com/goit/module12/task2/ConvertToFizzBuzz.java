@@ -11,7 +11,7 @@ public class ConvertToFizzBuzz {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ExecutorService service = Executors.newFixedThreadPool(4);
+        ExecutorService service = Executors.newFixedThreadPool(5);
 
         for (int i = 1; i <= n; i++) {
             final int counter = i;
