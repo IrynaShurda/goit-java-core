@@ -1,4 +1,4 @@
-package com.goit.module12.task1;
+package com.goit.module12.task2;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
