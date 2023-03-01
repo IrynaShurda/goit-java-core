@@ -15,10 +15,13 @@ import java.util.stream.Collectors;
 public class ListOpenTasks {
 
     public static void main(String[] args) throws URISyntaxException, IOException, InterruptedException {
-        String uri = "https://jsonplaceholder.typicode.com/users";
-        String userID = "1";
+        findOpenTasksByUserId(1);
+    }
 
-        HttpResponse<String> httpResponse = HttpMethods.getHttpRequest(uri + "/" + userID + "/todos");
+    private static void findOpenTasksByUserId(Integer userId) throws URISyntaxException, IOException, InterruptedException {
+        String uri = "https://jsonplaceholder.typicode.com/users";
+
+        HttpResponse<String> httpResponse = HttpMethods.getHttpRequest(uri + "/" + userId + "/todos");
 
         List<UserTask> userTasks = new Gson().fromJson(httpResponse.body(), new TypeToken<ArrayList<UserTask>>() {
         }.getType());
@@ -26,11 +29,9 @@ public class ListOpenTasks {
         List<UserTask> openTasks = findNotCompletedTask(userTasks);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
         String toJson = gson.toJson(openTasks);
 
-        System.out.println("open tasks for userId = " + userID + " " + toJson);
-
+        System.out.println("open tasks for userId = " + userId + " " + toJson);
     }
 
     private static List<UserTask> findNotCompletedTask(List<UserTask> userTasks) {
